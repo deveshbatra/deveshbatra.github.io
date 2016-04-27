@@ -12,7 +12,7 @@ Now that we are up and running after a few weeks of away leg due to a security i
 .
 .
 .
-**Master's Dissertation**
+**Master's Dissertation!**
 
 ![_config.yml]({{http://www.phdcomics.com}}/comics/archive/phd1028.gif)
 
