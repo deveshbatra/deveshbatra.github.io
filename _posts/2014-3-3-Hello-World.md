@@ -14,6 +14,6 @@ Now that we are up and running after a few weeks of away leg due to a security i
 .
 **Master's Dissertation!**
 
-![_config.yml]({{http://www.phdcomics.com}}/comics/archive/phd1028.gif)
+![_config.yml]({{ site.baseurl }}/images/phd.gif)
 
 That said, I'll try to be as regular as I can to post stuff here, so that I remember to include a portion of it in my thesis towards the end of August. Stay tuned for some of the most rubbish research done and summarized in the history of mankind.
