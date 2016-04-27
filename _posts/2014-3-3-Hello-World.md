@@ -1,10 +1,12 @@
 ---
 layout: post
-title: You're up and running!
+title: Master's dissertation
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+Hello, children!
 
+Now that we are up and running after a few weeks of away leg due to a security issue with one of India's worst but least expensive web-hosting service providers, our main focus for the next few weeks is going to be *trumpets* - Master's Dissertation.
 ![_config.yml]({{ site.baseurl }}/images/config.png)
+(http://www.phdcomics.com/comics/archive/phd1028.gif)
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+That said, I'll try to be as regular as I can to post stuff here, so that I remember to include a portion of it in my thesis towards the end of August. Stay tuned for some of the most rubbish research done and summarized in the history of mankind.
