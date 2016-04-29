@@ -16,4 +16,4 @@ Now that we are up and running after a few weeks of away leg due to a security i
 
 ![_config.yml]({{ site.baseurl }}/images/phd.gif)
 
-That said, I'll try to be as regular as I can to post stuff here, so that I remember to include a portion of it in my thesis towards the end of August. Stay tuned for some of the most rubbish research done and summarized in the history of mankind */jk/*.
+That said, I'll try to be as regular as I can to post stuff here, so that I remember to include a portion of it in my thesis towards the end of August. Stay tuned for some of the most rubbish research done and summarized in the history of mankind ***jk***.
