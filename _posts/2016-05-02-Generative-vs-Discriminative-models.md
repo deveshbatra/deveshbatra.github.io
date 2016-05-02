@@ -25,11 +25,11 @@ Another way of thinking about this is that generative algorithms make some kind 
 
 **Generative models**:
 
-I think of generative algorithms as providing a model of how the data is actually generated (I think of them as giving you a model of both P(X|Y)P(X|Y) and P(Y)P(Y), rather than of P(X,Y)P(X,Y), though I guess it's equivalent), and discriminative algorithms as simply providing classification splits (and not necessarily in a probabilistic manner).
+I think of generative algorithms as providing a model of how the data is actually generated (I think of them as giving you a model of both P(X|Y) and P(Y), rather than of P(X,Y), though I guess it's equivalent), and discriminative algorithms as simply providing classification splits (and not necessarily in a probabilistic manner).
 
 Compare, for instance, Gaussian mixture models and k-mean clustering. In the former, we have a nice probabilistic model for how points are generated (pick a component with some probability, and then emit a point by sampling from the component's Gaussian distribution), but there's nothing we can really say about the latter.
 
-Note that generative algorithms have discriminative properties, since you can get P(Y|X)P(Y|X) once you have P(X|Y)P(X|Y) and P(Y)P(Y) (by Bayes' Theorem), though discriminative algorithms don't really have generative properties.
+Note that generative algorithms have discriminative properties, since you can get P(Y|X) once you have P(X|Y) and P(Y) (by Bayes' Theorem), though discriminative algorithms don't really have generative properties.
 
 1. Generative algorithms make some kind of structure assumptions on your model (For example, Naive Bayes assumes conditional independence of your features).Generative models are typically specified as probabilistic graphical models, which offer rich representations of the independence relations in the dataset.
 2. Whenever you try to force a classifier to become generative (e.g. arguing that a logistic regressor can be obtained in terms of P(Y|X) and P(x) in place of P(Y,X), and hence can be a generative classifier) you are not using the full generative model to make classification decisions. 
