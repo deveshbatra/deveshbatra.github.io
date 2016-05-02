@@ -1,0 +1,7 @@
+In this article we discuss basic differences between Generative and Discriminative models. This article is still in its draft mode and should be taken as such.
+
+**Why is it important to understand the difference between Generative and Discriminative models?**
+While analysing the various classifiers that are suitable for operation on your dataset, you will come across various classifiers including but not limited to SVMs, Naive Bayes, Logistic Regressor, etc., but it becomes imperative to understand which classifier would work best for your particular dataset and what you expect to achieve from this analysis of your data. Most people tend to rely on hit and trial form, but with growing number of classifiers, it is becoming impossible to rely on this naive method. Thus, based on what you wish to achieve from your analysis, classifiers are broadly divided into two groups:
+1. Discriminative classifiers
+2. Generative classfiers
+
