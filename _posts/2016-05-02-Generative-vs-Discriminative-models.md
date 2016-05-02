@@ -1,3 +1,8 @@
+---
+layout: post
+title: Discriminative vs Generative models
+---
+
 In this article we discuss basic differences between Generative and Discriminative models. This article is still in its draft mode and should be taken as such.
 
 **Why is it important to understand the difference between Generative and Discriminative models?**
