@@ -1,15 +1,15 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-Some information about you!
+I am a Computer Science graduate student at University of Oxford and am pursuing my thesis under the supervision of Professor Andrew Markham. My primary interests lie in the fields of Machine Learning and Computational Learning Theory, and my current research revolves around Recurrent Neural Networks with special consideration to Long Short-Term Memory (LSTMs).
 
-### More Information
+### From the past
 
-A place to include any other types of information that you'd like to include about yourself.
+A former Data Engineer from New Delhi, India, I completed my Bachelor's degree in Information Technology from Guru Gobind Singh Indraprastha University, followed by a term at Stanford University in 2014. Post this, I worked at Snapdeal as a Research Engineer, where I worked in the Recommendations and Personlization team, designing useful products using Machine Learning and Natural Language Processing techniques.
 
 ### Contact me
 
-[deveshbatra@gmail.com](mailto:deveshbatra@gmail.com)
+[devesh.batra@cs.ox.ac.uk](mailto:devesh.batra@cs.ox.ac.uk)
