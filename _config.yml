@@ -22,14 +22,14 @@ footer-links:
   facebook: devbat
   flickr:
   github: deveshbatra
-  instagram:
+  instagram: 
   linkedin: batradevesh
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: RSS # just type anything here for a working RSS icon
   twitter: devesh_batra
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
+  youtube: channel/UCRbyeyAZxcbMDGD6IuUYskg # channel/<your_long_string> or user/<user-name>
+  googleplus: +DeveshBatraonGPlus/ # anything in your profile username that comes after plus.google.com/
 
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
