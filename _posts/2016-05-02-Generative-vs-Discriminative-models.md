@@ -27,7 +27,7 @@ So these could be either:
  - probabilistic algorithms try to learn P(Y|X) (e.g., logistic regression) or;
  - non-probabilistic algorithms that try to learn the mappings directly from the points to the classes (e.g., perceptron and SVMs simply give you a separating hyperplane, but no model of generating new points).
 
-Another way of thinking about this is that generative algorithms make some kind of structure assumptions on your model, but discriminative algorithms make fewer assumptions. For example, Naive Bayes assumes conditional independence of your features, while logistic regression (the discriminative "counterpart" of Naive Bayes) does not.
+ - Another way of thinking about this is that generative algorithms make some kind of structure assumptions on your model, but discriminative algorithms make fewer assumptions. For example, Naive Bayes assumes conditional independence of your features, while logistic regression (the discriminative "counterpart" of Naive Bayes) does not.
 
 5. In general, discriminative models are more powerful than the generative models and hence work better for larger datasets than smaller datasets. That said, they might tend to overfit on smaller datasets.
 
