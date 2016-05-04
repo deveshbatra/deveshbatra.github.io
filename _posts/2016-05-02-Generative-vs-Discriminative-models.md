@@ -24,8 +24,9 @@ The **fundamental difference** between these models is:
 
 4. Discriminative algorithms allow you to classify points, without providing a model of how the points are actually generated. 
 So these could be either:
- - probabilistic algorithms try to learn P(Y|X) (e.g., logistic regression) or;
- - non-probabilistic algorithms that try to learn the mappings directly from the points to the classes (e.g., perceptron and SVMs simply give you a separating hyperplane, but no model of generating new points).
+ 
+- probabilistic algorithms try to learn P(Y|X) (e.g., logistic regression) or;
+- non-probabilistic algorithms that try to learn the mappings directly from the points to the classes (e.g., perceptron and SVMs simply give you a separating hyperplane, but no model of generating new points).
 
  - Another way of thinking about this is that generative algorithms make some kind of structure assumptions on your model, but discriminative algorithms make fewer assumptions. For example, Naive Bayes assumes conditional independence of your features, while logistic regression (the discriminative "counterpart" of Naive Bayes) does not.
 
