@@ -17,15 +17,15 @@ The **fundamental difference** between these models is:
 **Discriminative models**:
 
 1. SVMs and decision trees are discriminative models because they learn explicit boundaties between classes. SVM is a maximal margin classifier, meaning that it learns a decision boundary that maximizes the distance between samples of the two classes, given a kernel. The distance between a sample and the learned decision boundary can be used to make the SVM a "soft" classifier. DTs learn the decision boundary by recursively partitioning the space in a manner that maximizes the information gain (or another criterion).
+
 2. Discriminative models do not generally function for outlier detection, though generative models generally do. What's best for a specific application should, of course, be evaluated based on the application.
 
 3. Discriminative models do not offer clear representations of relations between features and classes in the dataset. Instead of using resources to fully model each class, they focus on richly modeling the boundary between classes. Given the same amount of capacity (say, bits in a computer program executing the model), a discriminative model thus may yield more complex representations of this boundary than a generative model.
+
 4. Discriminative algorithms allow you to classify points, without providing a model of how the points are actually generated. 
 So these could be either:
-
-  a. probabilistic algorithms try to learn P(Y|X) (e.g., logistic regression) or;
-  
-  b. non-probabilistic algorithms that try to learn the mappings directly from the points to the classes (e.g., perceptron and SVMs simply give you a separating hyperplane, but no model of generating new points).
+ - probabilistic algorithms try to learn P(Y|X) (e.g., logistic regression) or;
+ - non-probabilistic algorithms that try to learn the mappings directly from the points to the classes (e.g., perceptron and SVMs simply give you a separating hyperplane, but no model of generating new points).
 
 Another way of thinking about this is that generative algorithms make some kind of structure assumptions on your model, but discriminative algorithms make fewer assumptions. For example, Naive Bayes assumes conditional independence of your features, while logistic regression (the discriminative "counterpart" of Naive Bayes) does not.
 
@@ -42,9 +42,9 @@ Note that generative algorithms have discriminative properties, since you can ge
 
 1. Generative algorithms make some kind of structure assumptions on your model (For example, Naive Bayes assumes conditional independence of your features).Generative models are typically specified as probabilistic graphical models, which offer rich representations of the independence relations in the dataset.
 
-2. Whenever you try to force a classifier to become generative (e.g. arguing that a logistic regressor can be obtained in terms of P(Y|X) and P(x) in place of P(Y,X), and hence can be a generative classifier) you are not using the full generative model to make classification decisions. 
+2. Whenever you try to force a classifier to become generative (e.g. arguing that a logistic regressor can be obtained in terms of P(Y|X) and P(x) in place of P(Y,X), and hence can be a generative classifier) you are not using the full generative model to make classification decisions.
+ - Note that you can make a discriminative classifier generative only because you're adding something to logistic regression that's not already there. That is, when you're performing a Naive Bayes classification, you're directly computing P(Y|X)∝P(X|Y)P(Y) (the terms on the right, P(X|Y)P(X|Y) and P(Y)P(Y), are what allow you to generate a new document); but when you're computing P(Y|X) in logistic regression, you're not computing these two things, you're just applying a logistic function to a dot product.
 
-  Note that you can make a discriminative classifier generative only because you're adding something to logistic regression that's not already there. That is, when you're performing a Naive Bayes classification, you're directly computing P(Y|X)∝P(X|Y)P(Y) (the terms on the right, P(X|Y)P(X|Y) and P(Y)P(Y), are what allow you to generate a new document); but when you're computing P(Y|X) in logistic regression, you're not computing these two things, you're just applying a logistic function to a dot product.
 
 3. Generative models often outperform discriminative models on smaller datasets because their generative assumptions place some structure on your model that prevent overfitting. For example, let's consider Naive Bayes vs. Logistic Regression. The Naive Bayes assumption is of course rarely satisfied, so logistic regression will tend to outperform Naive Bayes as your dataset grows (since it can capture dependencies that Naive Bayes can't).
 
