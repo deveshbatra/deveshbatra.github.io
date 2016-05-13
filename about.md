@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-I am a Computer Science graduate student at University of Oxford and am pursuing my thesis under the supervision of Professor Andrew Markham. My primary interests lie in the fields of Machine Learning and Computational Learning Theory, and my current research revolves around Recurrent Neural Networks with special consideration to Long Short-Term Memory networks (LSTMs).
+I am a graduate student in the Department of Computer Science at University of Oxford, and am pursuing my thesis under the supervision of Professor Andrew Markham. My primary interests lie in the fields of Machine Learning and Computational Learning Theory, and my current research revolves around Recurrent Neural Networks with special consideration to Long Short-Term Memory networks (LSTMs).
 
 Computational Complexity (I am a big fan of Erik Demaine), non-convex optimization and graph theory are some other topics that interest me.
 
