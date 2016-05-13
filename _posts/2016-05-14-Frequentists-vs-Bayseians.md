@@ -1,3 +1,8 @@
+---
+layout: post
+title: Frequentists vs Bayesians
+---
+
 Mathematically speaking, frequentist and Bayesian methods differ in what they care about, and the kind of errors they're willing to accept.
 
 Generally speaking, frequentist approaches posit that the world is one way (e.g., a parameter has one particular true value), and try to conduct experiments whose resulting conclusion -- no matter the true value of the parameter -- will be correct with at least some minimum probability.
