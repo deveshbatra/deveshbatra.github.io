@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to choose the number of hidden layers and nodes in a feedforward neural network?
+title: Choosing number of hidden layers and nodes in a neural network?
 ---
 
 
