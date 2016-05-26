@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Choosing number of hidden layers and nodes in a neural network?
+title: Choosing number of hidden layers and nodes in a neural network
 ---
 
 
