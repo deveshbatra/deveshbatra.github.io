@@ -11,4 +11,4 @@ title: Questions
 
 2. What is the relation between the number of layers, number of nodes in a layer and the number of parameters in the model?
 *Notes:*
-- The answer for 2 hidden layers in LSTM for 512 nodes is 3.5 :|
+- The answer for 2 hidden layers in LSTM for 512 nodes is 3.5 :\|
