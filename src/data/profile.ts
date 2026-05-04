@@ -10,6 +10,7 @@ export const profile = {
   personalLine:
     "I like building things that are both useful and rigorous: research papers, production AI systems, quick side projects, and the occasional tool for organising badminton matches.",
   links: {
+    email: "mailto:deveshbatra@gmail.com",
     linkedin: "https://uk.linkedin.com/in/batradevesh",
     github: "https://github.com/deveshbatra",
     googleScholar: "https://scholar.google.com/citations?hl=en&user=0sQlRv0AAAAJ",

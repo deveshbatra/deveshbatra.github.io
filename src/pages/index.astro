@@ -31,6 +31,10 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
         <a class="button" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
         <a class="button" href={profile.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
       </div>
+      <a class="email-terminal" href="mailto:deveshbatra@gmail.com?subject=Hello%20Devesh" aria-label="Email Devesh Batra">
+        <span class="email-label mono">Email Devesh</span>
+        <span class="email-input mono">deveshbatra@gmail.com<span class="email-cursor" aria-hidden="true"></span></span>
+      </a>
     </div>
     <div class="visual-stack">
       <ProfileTerminalPortrait />
@@ -92,6 +96,47 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
   .hero { padding: 76px 0 58px; align-items: center; }
   .hero-copy { max-width: 730px; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.45rem); }
   .visual-stack { display: grid; gap: 16px; }
+  .email-terminal {
+    display: grid;
+    gap: 8px;
+    max-width: 420px;
+    margin-top: 18px;
+    border: 1px solid rgba(200, 255, 0, 0.24);
+    border-radius: 8px;
+    background: rgba(5, 8, 5, 0.72);
+    padding: 12px;
+  }
+  .email-terminal:hover {
+    border-color: var(--accent);
+    color: var(--fg);
+  }
+  .email-label {
+    color: var(--accent);
+    font-size: 0.82rem;
+  }
+  .email-input {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #030403;
+    color: #d9ffd2;
+    padding: 0 12px;
+    overflow-wrap: anywhere;
+  }
+  .email-cursor {
+    width: 8px;
+    height: 1.15em;
+    background: var(--accent);
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s steps(2, start) infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
   .paper-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .manifesto p:first-child { color: var(--accent); font-family: "JetBrains Mono", monospace; }
