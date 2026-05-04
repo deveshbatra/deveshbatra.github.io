@@ -32,7 +32,12 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
         <a class="button" href={profile.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
       </div>
       <form class="email-terminal" data-email-form>
-        <label class="email-label mono" for="homepage-email">Email Devesh</label>
+        <label class="email-label mono" for="homepage-email">
+          <svg class="email-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 3 3.7 10.1c-1 .4-.9 1.8.1 2.1l4.4 1.4 1.7 5.2c.3.9 1.5 1 2 .2l2.4-3.5 4.6 3.4c.8.6 1.9.1 2-1l2-13.8c.1-.8-.7-1.4-1.9-1.1ZM9.1 12.7l8.6-5.4-6.7 7.4-.3 2.6-1.6-4.6Z" />
+          </svg>
+          <span>ping devesh --inbox</span>
+        </label>
         <div class="email-input-wrap">
           <input id="homepage-email" class="email-input mono" name="message" autocomplete="off" aria-label="Message to email Devesh" />
           <div class="email-display mono" aria-hidden="true">
@@ -115,8 +120,17 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
   }
   .email-terminal:focus-within { border-color: var(--accent); }
   .email-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--accent);
     font-size: 0.82rem;
+  }
+  .email-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    filter: drop-shadow(0 0 8px rgba(200, 255, 0, 0.28));
   }
   .email-input-wrap {
     position: relative;
