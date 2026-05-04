@@ -31,10 +31,14 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
         <a class="button" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
         <a class="button" href={profile.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
       </div>
-      <a class="email-terminal" href="mailto:deveshbatra@gmail.com?subject=Hello%20Devesh" aria-label="Email Devesh Batra">
-        <span class="email-label mono">Email Devesh</span>
-        <span class="email-input mono">deveshbatra@gmail.com<span class="email-cursor" aria-hidden="true"></span></span>
-      </a>
+      <form class="email-terminal" data-email-form>
+        <label class="email-label mono" for="homepage-email">Email Devesh</label>
+        <div class="email-input-wrap">
+          <textarea id="homepage-email" class="email-input mono" name="message" rows="2" placeholder="Type a note..." aria-label="Message to email Devesh"></textarea>
+          <span class="email-cursor" aria-hidden="true"></span>
+        </div>
+        <button class="button email-send" type="submit">Send email →</button>
+      </form>
     </div>
     <div class="visual-stack">
       <ProfileTerminalPortrait />
@@ -106,34 +110,38 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
     background: rgba(5, 8, 5, 0.72);
     padding: 12px;
   }
-  .email-terminal:hover {
-    border-color: var(--accent);
-    color: var(--fg);
-  }
+  .email-terminal:focus-within { border-color: var(--accent); }
   .email-label {
     color: var(--accent);
     font-size: 0.82rem;
   }
+  .email-input-wrap {
+    position: relative;
+    display: grid;
+  }
   .email-input {
     min-height: 42px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
     border: 1px solid var(--line);
     border-radius: 6px;
     background: #030403;
     color: #d9ffd2;
-    padding: 0 12px;
+    padding: 10px 24px 10px 12px;
     overflow-wrap: anywhere;
+    resize: vertical;
+    width: 100%;
   }
+  .email-input::placeholder { color: rgba(217, 255, 210, 0.46); }
   .email-cursor {
     width: 8px;
     height: 1.15em;
     background: var(--accent);
-    display: inline-block;
-    margin-left: 2px;
+    position: absolute;
+    right: 12px;
+    top: 13px;
     animation: blink 1s steps(2, start) infinite;
   }
+  .email-input:focus + .email-cursor { display: none; }
+  .email-send { width: max-content; }
   @keyframes blink {
     50% { opacity: 0; }
   }
@@ -145,3 +153,15 @@ const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
     .paper-grid, .three-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const form = document.querySelector("[data-email-form]");
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const textarea = form.querySelector("textarea");
+    const message = textarea instanceof HTMLTextAreaElement ? textarea.value.trim() : "";
+    const subject = encodeURIComponent("Hello Devesh");
+    const body = encodeURIComponent(message || "Hi Devesh,");
+    window.location.href = `mailto:deveshbatra@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
