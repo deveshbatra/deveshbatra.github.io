@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { profile, researchThemes } from "@data/profile";
+---
+
+<BaseLayout title="About" description="About Devesh Batra, research themes, background, and personal projects.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">$ whoami</p><h1>AI research, rigorous systems, and the occasional club-night tool.</h1><p>{profile.shortBio} His public research spans LLM agents in finance, compliance-critical LLM systems, conformal prediction, machine unlearning, model bias, and risk-taking behaviour.</p></div></section>
+  <section class="section"><div class="container two-col grid"><div><h2>Research themes</h2><p class="muted">{profile.personalLine}</p></div><div class="grid">{researchThemes.map((theme) => <article class="card"><h3>{theme}</h3></article>)}</div></div></section>
+  <section class="section"><div class="container two-col grid"><div><p class="eyebrow">~/background</p><h2>Background</h2></div><div class="card"><p>Public profile copy references NatWest AI research and Oxford MSc / DPhil work. Keep this section editable and approve detailed biographical wording before publishing.</p></div></div></section>
+  <section class="section"><div class="container two-col grid"><img class="profile" src="/images/devesh-profile-picture.png" alt="Portrait of Devesh Batra" /><div><p class="eyebrow">~/disclaimer</p><h2>Views are my own.</h2><p class="muted">This site is a personal homepage and does not represent my employer.</p><a class="button" href="/colophon/">Colophon →</a></div></div></section>
+</BaseLayout>
+<style>.profile{border-radius:8px;border:1px solid var(--line);max-height:520px;object-fit:cover}</style>

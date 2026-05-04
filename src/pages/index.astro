@@ -1,0 +1,102 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ProfileTerminalPortrait from "@components/ProfileTerminalPortrait.astro";
+import TerminalPanel from "@components/TerminalPanel.astro";
+import PaperCard from "@components/PaperCard.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { profile, researchThemes } from "@data/profile";
+import { papers } from "@data/papers";
+import { projects } from "@data/projects";
+import { getCollection } from "astro:content";
+
+const showDrafts = import.meta.env.PUBLIC_SHOW_DRAFTS === "true";
+const posts = (await getCollection("blog"))
+  .filter((post) => showDrafts || !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+const featuredPapers = papers.filter((paper) => paper.featured).slice(0, 5);
+const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
+---
+
+<BaseLayout>
+  <section class="hero container two-col grid">
+    <div>
+      <p class="eyebrow">/deveshbatra/</p>
+      <h1 class="hero-title">Lead AI Scientist & Researcher</h1>
+      <p class="hero-copy">I work on applied AI systems: LLMs in finance, responsible deployment, model behaviour, uncertainty, and decision-making under risk.</p>
+      <p class="muted mono">Currently: NatWest AI Research · Oxford DPhil</p>
+      <div class="button-row">
+        <a class="button primary" href="/papers/">Read papers →</a>
+        <a class="button" href="/blog/">Read blog →</a>
+        <a class="button" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a class="button" href={profile.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar ↗</a>
+      </div>
+    </div>
+    <div class="visual-stack">
+      <ProfileTerminalPortrait />
+      <TerminalPanel />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Selected Papers</h2><a class="button" href="/papers/">All papers →</a></div>
+      <div class="grid paper-grid">{featuredPapers.map((paper) => <PaperCard paper={paper} />)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Latest Notes</h2><a class="button" href="/blog/">Blog →</a></div>
+      <div class="grid three-grid">
+        {posts.map((post) => (
+          <article class="card">
+            <p class="eyebrow">{post.data.date.toLocaleDateString("en-GB")} {post.data.draft ? ":: draft" : ""}</p>
+            <h3><a href={`/blog/${postSlug(post.id)}/`}>{post.data.title}</a></h3>
+            <p>{post.data.description}</p>
+            <div class="pill-row">{post.data.tags.map((tag) => <span class="pill">{tag}</span>)}</div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col grid">
+      <div>
+        <p class="eyebrow">$ focus --now</p>
+        <h2>What I Work On</h2>
+      </div>
+      <div class="grid">
+        {researchThemes.map((theme) => <div class="card"><h3>{theme}</h3></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Build Log / Side Quests</h2><a class="button" href="/projects/">Projects →</a></div>
+      <div class="grid three-grid">{projects.map((project) => <ProjectCard project={project} />)}</div>
+    </div>
+  </section>
+
+  <section class="section manifesto">
+    <div class="container">
+      <p>I like small, legible systems.</p>
+      <p>Research should be understandable. Software should be useful. AI systems should be measured where they are actually used. And side projects should be allowed to be weird.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 76px 0 58px; align-items: center; }
+  .hero-copy { max-width: 730px; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.45rem); }
+  .visual-stack { display: grid; gap: 16px; }
+  .paper-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .manifesto p:first-child { color: var(--accent); font-family: "JetBrains Mono", monospace; }
+  .manifesto p:last-child { max-width: 900px; font-size: clamp(1.6rem, 4vw, 4rem); line-height: 1.05; margin: 0; }
+  @media (max-width: 900px) {
+    .paper-grid, .three-grid { grid-template-columns: 1fr; }
+  }
+</style>

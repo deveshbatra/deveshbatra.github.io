@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Tools" description="Small static tools and tool ideas by Devesh Batra.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">~/tools</p><h1>Small tools for real communities.</h1><p>Static, lightweight ideas for match lists, rotas, paper triage, and other bits of useful glue.</p></div></section>
+  <section class="section"><div class="container grid cards">
+    <article class="card"><p class="eyebrow">idea :: badminton</p><h3>Badminton Match List Generator</h3><p>Create doubles rotations, court lists, and accessible printouts for a club night.</p><a class="button" href="/projects/">Project notes →</a></article>
+    <article class="card"><p class="eyebrow">idea :: research</p><h3>Paper Reading Queue</h3><p>A tiny static reading list for papers, tags, and plain-English notes.</p></article>
+    <article class="card"><p class="eyebrow">idea :: AI practice</p><h3>Governance Checklist Cards</h3><p>Compact prompts for thinking through model behaviour, uncertainty, and deployment risks.</p></article>
+  </div></section>
+</BaseLayout>
+<style>.cards{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:900px){.cards{grid-template-columns:1fr}}</style>

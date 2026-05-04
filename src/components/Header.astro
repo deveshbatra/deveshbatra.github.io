@@ -1,0 +1,20 @@
+---
+import LiveClock from "./LiveClock.astro";
+import { navItems } from "@data/navigation";
+import { profile } from "@data/profile";
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand mono" href="/" aria-label="Devesh Batra home">/deveshbatra/</a>
+    <nav class="nav" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={pathname === item.href ? "page" : undefined}>{item.label}</a>
+      ))}
+      <a href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    </nav>
+    <LiveClock />
+  </div>
+</header>

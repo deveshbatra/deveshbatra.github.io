@@ -1,0 +1,15 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <article class="container article">
+    <p class="eyebrow">~/blog :: {frontmatter.date.toLocaleDateString("en-GB", { dateStyle: "medium" })}</p>
+    <h1>{frontmatter.title}</h1>
+    <p class="muted">{frontmatter.description}</p>
+    <div class="pill-row">{frontmatter.tags.map((tag: string) => <span class="pill">{tag}</span>)}</div>
+    <slot />
+  </article>
+</BaseLayout>

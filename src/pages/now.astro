@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Now" description="Current focus, reading, building, and side quests.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">~/now</p><h1>Current focus.</h1><p>Researching, building, reading, and a few side quests. Last updated: 2026-05-03.</p></div></section>
+  <section class="section"><div class="container grid cards">
+    <article class="card"><p class="eyebrow">$ researching</p><h3>LLM systems in real deployment contexts</h3><p>Finance, governance, evaluation, behaviour, uncertainty, and how models are used under constraints.</p></article>
+    <article class="card"><p class="eyebrow">$ building</p><h3>Small static tools</h3><p>Research explainers, badminton club utilities, and reusable public notes.</p></article>
+    <article class="card"><p class="eyebrow">$ reading</p><h3>Papers on agents and evaluation</h3><p>Especially work that makes model behaviour measurable where systems are actually used.</p></article>
+    <article class="card"><p class="eyebrow">$ side-quests</p><h3>Useful weirdness</h3><p>Lightweight webapps, rotas, lists, and the gentle art of making tiny systems less annoying.</p></article>
+  </div></section>
+</BaseLayout>
+<style>.cards{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:800px){.cards{grid-template-columns:1fr}}</style>

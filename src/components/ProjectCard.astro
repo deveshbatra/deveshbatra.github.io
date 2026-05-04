@@ -1,0 +1,13 @@
+---
+import type { Project } from "@data/projects";
+const { project } = Astro.props as { project: Project };
+const links = Object.entries(project.links).filter(([, href]) => Boolean(href));
+---
+
+<article class="card">
+  <p class="eyebrow">{project.bucket} :: {project.status}</p>
+  <h3>{project.title}</h3>
+  <p>{project.description}</p>
+  <div class="pill-row">{project.tags.map((tag) => <span class="pill">{tag}</span>)}</div>
+  {links.length > 0 && <div class="button-row" style="margin-top: 16px;">{links.map(([label, href]) => <a class="button" href={href} target="_blank" rel="noreferrer">{label} ↗</a>)}</div>}
+</article>

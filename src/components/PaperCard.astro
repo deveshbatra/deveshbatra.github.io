@@ -1,0 +1,25 @@
+---
+import type { Paper } from "@data/papers";
+
+interface Props { paper: Paper; }
+const { paper } = Astro.props;
+const links = Object.entries(paper.links).filter(([, href]) => Boolean(href));
+---
+
+<article class="card paper-card" data-tags={paper.tags.join("|")} data-year={paper.year}>
+  <p class="eyebrow">{paper.year} :: {paper.type} :: {paper.venue}</p>
+  <h3>{paper.title}</h3>
+  <p class="authors">{paper.authors.join(", ")}</p>
+  <p>{paper.summary}</p>
+  <div class="pill-row" aria-label="Paper tags">
+    {paper.tags.map((tag) => <span class="pill">{tag}</span>)}
+  </div>
+  <div class="button-row links">
+    {links.map(([label, href]) => <a class="button" href={href} target="_blank" rel="noreferrer">{label} ↗</a>)}
+  </div>
+</article>
+
+<style>
+  .authors { font-size: 0.92rem; }
+  .links { margin-top: 16px; }
+</style>

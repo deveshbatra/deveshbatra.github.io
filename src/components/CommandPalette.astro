@@ -1,0 +1,65 @@
+---
+import { navItems, secondaryItems } from "@data/navigation";
+import { profile } from "@data/profile";
+
+const commands = [
+  ...navItems,
+  ...secondaryItems,
+  { label: "GitHub", href: profile.links.github },
+  { label: "Google Scholar", href: profile.links.googleScholar },
+  { label: "LinkedIn", href: profile.links.linkedin }
+];
+---
+
+<div class="palette" data-palette hidden>
+  <div class="palette-box" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>jump</span></div>
+    <div class="palette-list">
+      {commands.map((item) => <a href={item.href}>{item.label}<span>↵</span></a>)}
+    </div>
+  </div>
+</div>
+
+<script>
+  const palette = document.querySelector("[data-palette]");
+  const open = () => {
+    palette?.removeAttribute("hidden");
+    palette?.querySelector("a")?.focus();
+  };
+  const close = () => palette?.setAttribute("hidden", "");
+  document.addEventListener("keydown", (event) => {
+    const isCombo = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k";
+    if (event.key === "/" || isCombo) {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      open();
+    }
+    if (event.key === "Escape") close();
+  });
+  palette?.addEventListener("click", (event) => {
+    if (event.target === palette) close();
+  });
+</script>
+
+<style>
+  .palette {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    place-items: start center;
+    padding: 12vh 18px 18px;
+    background: rgba(0, 0, 0, 0.62);
+  }
+  .palette-box {
+    width: min(560px, 100%);
+    border: 1px solid rgba(200, 255, 0, 0.3);
+    border-radius: 8px;
+    background: #090a08;
+    overflow: hidden;
+  }
+  .palette-list { display: grid; padding: 10px; }
+  .palette-list a { display: flex; justify-content: space-between; padding: 12px; border-radius: 4px; color: var(--fg); }
+  .palette-list a:hover, .palette-list a:focus-visible { background: var(--accent); color: #050505; }
+</style>

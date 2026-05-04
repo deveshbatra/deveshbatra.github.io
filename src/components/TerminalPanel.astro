@@ -1,0 +1,13 @@
+---
+import LiveClock from "./LiveClock.astro";
+---
+
+<aside class="terminal" aria-label="Profile status">
+  <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>session</span></div>
+  <div class="terminal-body">
+    <p><span class="prompt">$ whoami</span><br />Devesh Batra</p>
+    <p><span class="prompt">$ focus --now</span><br />LLM systems · AI governance · financial AI · uncertainty · model behaviour</p>
+    <p><span class="prompt">$ links</span><br />scholar | github | linkedin | papers | blog</p>
+    <p><span class="prompt">$ timezone</span><br /><LiveClock /></p>
+  </div>
+</aside>

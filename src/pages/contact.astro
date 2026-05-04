@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { profile } from "@data/profile";
+---
+
+<BaseLayout title="Contact" description="Professional contact links for Devesh Batra.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">~/contact</p><h1>Good links, no inbox theatre.</h1><p>The best way to reach me professionally is LinkedIn. For code and public projects, GitHub is the easiest starting point.</p></div></section>
+  <section class="section"><div class="container grid cards">
+    <a class="card" href={profile.links.linkedin} target="_blank" rel="noreferrer"><h3>LinkedIn ↗</h3><p>Professional contact and profile.</p></a>
+    <a class="card" href={profile.links.github} target="_blank" rel="noreferrer"><h3>GitHub ↗</h3><p>Code, public projects, and source repository context.</p></a>
+    <a class="card" href={profile.links.googleScholar} target="_blank" rel="noreferrer"><h3>Google Scholar ↗</h3><p>Publication list and citation profile.</p></a>
+    <a class="card" href={profile.links.researchGate} target="_blank" rel="noreferrer"><h3>ResearchGate ↗</h3><p>Research profile and papers.</p></a>
+    <article class="card disabled"><h3>Email</h3><p>No public personal email is listed here.</p></article>
+  </div></section>
+</BaseLayout>
+<style>.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.disabled{opacity:.58}@media(max-width:900px){.cards{grid-template-columns:1fr}}</style>

@@ -1,0 +1,42 @@
+---
+interface Props {
+  src?: string;
+  alt?: string;
+  caption?: string;
+}
+const {
+  src = "/images/devesh-terminal-portrait.png",
+  alt = "Terminal-style portrait of Devesh Batra",
+  caption = "~/portrait --mode terminal"
+} = Astro.props;
+---
+
+<figure class="portrait terminal">
+  <div class="terminal-bar" aria-hidden="true">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <span>{caption}</span>
+  </div>
+  <div class="portrait-frame">
+    <img src={src} alt={alt} />
+  </div>
+</figure>
+
+<style>
+  .portrait { margin: 0; }
+  .portrait-frame {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #020402;
+    overflow: hidden;
+  }
+  .portrait-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(200, 255, 0, 0.08), rgba(200, 255, 0, 0.08) 1px, transparent 1px, transparent 4px);
+    mix-blend-mode: screen;
+    opacity: 0.2;
+  }
+  img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.08) contrast(1.05); }
+</style>

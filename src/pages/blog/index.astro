@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const showDrafts = import.meta.env.PUBLIC_SHOW_DRAFTS === "true";
+const posts = (await getCollection("blog"))
+  .filter((post) => showDrafts || !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const postSlug = (id: string) => id.replace(/\.(md|mdx)$/, "");
+---
+
+<BaseLayout title="Blog" description="Research notes, AI practice notes, coding notes, and side-project writeups.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">~/blog</p><h1>Notes from the edge of research and building.</h1><p>MDX posts for research notes, AI-in-practice reflections, coding notes, side projects, badminton tools, and papers I liked.</p></div></section>
+  <section class="section"><div class="container grid blog-grid">
+    {posts.map((post) => (
+      <article class="card">
+        <p class="eyebrow">{post.data.date.toLocaleDateString("en-GB")} {post.data.draft ? ":: draft" : ""}</p>
+        <h3><a href={`/blog/${postSlug(post.id)}/`}>{post.data.title}</a></h3>
+        <p>{post.data.description}</p>
+        <div class="pill-row">{post.data.tags.map((tag) => <span class="pill">{tag}</span>)}</div>
+      </article>
+    ))}
+  </div></section>
+</BaseLayout>
+
+<style>.blog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}</style>

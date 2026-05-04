@@ -1,0 +1,60 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PaperCard from "@components/PaperCard.astro";
+import { papers, paperTags, paperYears } from "@data/papers";
+import { profile } from "@data/profile";
+
+const sortedPapers = [...papers].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+---
+
+<BaseLayout title="Papers" description="Research and publications by Devesh Batra.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">~/papers</p>
+      <h1>Papers, preprints, and research traces.</h1>
+      <p>Publication list is curated; see Google Scholar for the full/current list.</p>
+      <div class="button-row"><a class="button primary" href={profile.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar ↗</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="filters mono" aria-label="Paper filters">
+        <label>Tag <select data-filter-tag><option value="">All tags</option>{paperTags.map((tag) => <option value={tag}>{tag}</option>)}</select></label>
+        <label>Year <select data-filter-year><option value="">All years</option>{paperYears.map((year) => <option value={String(year)}>{year}</option>)}</select></label>
+        <button class="button" type="button" data-filter-reset>Reset</button>
+      </div>
+      <div class="grid paper-list" data-paper-list>{sortedPapers.map((paper) => <PaperCard paper={paper} />)}</div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const tagSelect = document.querySelector("[data-filter-tag]");
+  const yearSelect = document.querySelector("[data-filter-year]");
+  const reset = document.querySelector("[data-filter-reset]");
+  const cards = Array.from(document.querySelectorAll("[data-tags]"));
+  const apply = () => {
+    const tag = tagSelect instanceof HTMLSelectElement ? tagSelect.value : "";
+    const year = yearSelect instanceof HTMLSelectElement ? yearSelect.value : "";
+    cards.forEach((card) => {
+      const matchesTag = !tag || card.getAttribute("data-tags")?.split("|").includes(tag);
+      const matchesYear = !year || card.getAttribute("data-year") === year;
+      card.toggleAttribute("hidden", !(matchesTag && matchesYear));
+    });
+  };
+  tagSelect?.addEventListener("change", apply);
+  yearSelect?.addEventListener("change", apply);
+  reset?.addEventListener("click", () => {
+    if (tagSelect instanceof HTMLSelectElement) tagSelect.value = "";
+    if (yearSelect instanceof HTMLSelectElement) yearSelect.value = "";
+    apply();
+  });
+</script>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 24px; }
+  select { min-height: 40px; margin-left: 8px; border: 1px solid var(--line); border-radius: 6px; color: var(--fg); background: var(--panel); padding: 0 10px; }
+  .paper-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  [hidden] { display: none !important; }
+  @media (max-width: 860px) { .paper-list { grid-template-columns: 1fr; } }
+</style>

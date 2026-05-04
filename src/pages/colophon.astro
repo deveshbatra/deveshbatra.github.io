@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Colophon" description="Design notes, stack, hosting, and source for this website.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">~/colophon</p><h1>How this site is put together.</h1><p>Minimal editorial layout, terminal/editor texture, and plain static files.</p></div></section>
+  <section class="section"><div class="container grid cards">
+    <article class="card"><h3>Stack</h3><p>Astro, TypeScript, MDX, RSS, sitemap, and GitHub Actions deployment to GitHub Pages.</p></article>
+    <article class="card"><h3>Design</h3><p>Inspired by designby.cc as a tone reference: slash identity, compact navigation, local time, big type, and whitespace. Reinterpreted with terminal panels and phosphor accents.</p></article>
+    <article class="card"><h3>Images</h3><p>Uses only first-party local assets: the terminal portrait on the homepage and the original portrait on About.</p></article>
+    <article class="card"><h3>Source</h3><p><a class="button" href="https://github.com/deveshbatra/deveshbatra.github.io" target="_blank" rel="noreferrer">Repository ↗</a></p></article>
+  </div></section>
+</BaseLayout>
+<style>.cards{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:800px){.cards{grid-template-columns:1fr}}</style>

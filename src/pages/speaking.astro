@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { talks } from "@data/talks";
+---
+
+<BaseLayout title="Speaking" description="Talks, workshops, posters, and public appearances.">
+  <section class="page-hero"><div class="container"><p class="eyebrow">~/speaking</p><h1>Talks, workshops, and appearances.</h1><p>A small verified list, kept conservative by design.</p></div></section>
+  <section class="section"><div class="container grid cards">
+    {talks.map((talk) => (
+      <article class="card">
+        <p class="eyebrow">{talk.date} :: {talk.event}</p>
+        <h3>{talk.title}</h3>
+        <p>{talk.description}</p>
+        <div class="button-row">{Object.entries(talk.links).map(([label, href]) => <a class="button" href={href} target="_blank" rel="noreferrer">{label} ↗</a>)}</div>
+      </article>
+    ))}
+  </div></section>
+</BaseLayout>
+<style>.cards{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:800px){.cards{grid-template-columns:1fr}}</style>
